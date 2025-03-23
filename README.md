@@ -1,4 +1,12 @@
-# Gurl
+<div style="display: flex; flex-direction: column; align-items:center;">
+  <img width="100" height="100" src="./public/logo.svg" alt="Gurl Logo">
+  <h1 style="background: linear-gradient(to right, #6366f1, #ec4899); -webkit-background-clip: text; background-clip: text; color: transparent; display: inline-block; font-weight: 800;">gurl</h1>
+  <p>A git backed URL shortener built with Eleventy</p>
+</div>
+
+---
+
+# Overview
 
 A git backed URL shortener built with Eleventy (11ty) that uses markdown files for redirects.
 

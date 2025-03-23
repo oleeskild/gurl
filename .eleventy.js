@@ -5,6 +5,9 @@ module.exports = function (eleventyConfig) {
   // Copy the `css` directory to the output
   eleventyConfig.addPassthroughCopy("src/css");
 
+  // Copy the public directory to the output
+  eleventyConfig.addPassthroughCopy("public");
+
   // Add package.json data for use in templates
   eleventyConfig.addGlobalData("pkg", require("./package.json"));
 

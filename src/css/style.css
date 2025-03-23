@@ -710,6 +710,7 @@ section h2::after {
   margin-bottom: 1.5rem;
   font-size: 4rem;
   line-height: 1;
+  padding-bottom: 6px;
 }
 
 .gradient-text {
@@ -893,27 +894,47 @@ footer p {
 /* Silicon Valley-style Logo */
 .logo-container {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  margin-bottom: 1.5rem;
   justify-content: center;
+  margin-bottom: 2rem;
+  text-align: center;
 }
 
 .logo {
   position: relative;
-  width: 55px;
-  height: 55px;
-  border-radius: 12px;
+  width: 70px;
+  height: 70px;
+  border-radius: 15px;
   background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #ec4899 100%);
-  margin-right: 1rem;
+  margin-bottom: 1rem;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
   display: flex;
   justify-content: center;
   align-items: center;
   font-weight: 800;
   color: white;
-  font-size: 28px;
+  font-size: 32px;
   transform: rotate(-5deg);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  line-height: 1;
+}
+
+.logo::after {
+  content: "";
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.logo span {
+  display: inline-block;
+  position: relative;
+  top: 2px; /* Slight adjustment to center the letter */
 }
 
 .logo:hover {
@@ -921,24 +942,14 @@ footer p {
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
 }
 
-.logo::after {
-  content: "";
-  position: absolute;
-  top: 8px;
-  right: 8px;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.8);
-}
-
 .logo-text {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 .logo-name {
-  font-size: 1.8rem;
+  font-size: 2.2rem;
   font-weight: 800;
   letter-spacing: -0.5px;
   background: linear-gradient(to right, #6366f1, #ec4899);
@@ -950,9 +961,21 @@ footer p {
 }
 
 .logo-tagline {
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   font-weight: 500;
-  color: var(--text-muted);
-  margin: 0;
+  color: var(--muted-color);
+  margin: 0.5rem 0 0 0;
   opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+  .logo-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .logo {
+    margin-bottom: 1rem;
+    margin-right: 0;
+  }
 } 
