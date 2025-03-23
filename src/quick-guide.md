@@ -23,11 +23,10 @@ Managing your URL shortcuts with Gurl is easy, especially if you use GitHub.dev 
    - Create a new markdown file with a `.md` extension
    - The file path will become the URL path (e.g., `src/social/twitter.md` becomes `/social/twitter`)
 
-3. **Add the Required Frontmatter:**
+3. **Add the Frontmatter:**
 
    ```markdown
    ---
-   layout: redirect.njk
    title: Your Page Title
    redirect_url: https://destination-url.com
    redirect_delay: 3000 # milliseconds (3 seconds)
