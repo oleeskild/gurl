@@ -1,0 +1,15 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Simplified logo optimized for favicon use -->
+  <rect width="32" height="32" rx="6" fill="url(#favicon-gradient)" transform="rotate(-5 16 16)"/>
+  <circle cx="24" cy="8" r="2" fill="rgba(255, 255, 255, 0.8)"/>
+  <text x="16" y="19" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white" text-anchor="middle" dominant-baseline="central">g</text>
+  
+  <!-- Gradient definition -->
+  <defs>
+    <linearGradient id="favicon-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6366f1" />
+      <stop offset="50%" stop-color="#8b5cf6" />
+      <stop offset="100%" stop-color="#ec4899" />
+    </linearGradient>
+  </defs>
+</svg> 

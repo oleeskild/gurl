@@ -1,41 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>{{ title }}</title>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
-        <link rel="stylesheet" href="/css/style.css">
-    </head>
-    <body>
-        <header class="container">
-            <nav>
-                <ul>
-                    <li>
-                        <strong>{{ site.title }}</strong>
-                    </li>
-                </ul>
-                <ul>
-                    <li>
-                        <a href="/">Home</a>
-                    </li>
-                    <li>
-                        <a href="/about">About</a>
-                    </li>
-                </ul>
-            </nav>
-        </header>
-        <main class="container">
-            {{ content | safe }}
-        </main>
-        <footer class="container">
-            <nav>
-                <a href="/">Home</a>
-                <a href="/about">About</a>
-                <a href="/quick-guide">GitHub.dev Guide</a>
-                <a href="https://github.com/oleeskild/gurl">GitHub</a>
-            </nav>
-            <p>&copy; {{ site.year }} - {{ site.title }} | A free and open source URL shortener</p>
-        </footer>
-    </body>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="manifest" href="/favicon/site.webmanifest">
+    <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#8b5cf6">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="msapplication-TileColor" content="#8b5cf6">
+    <meta name="msapplication-config" content="/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#8b5cf6">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+  </head>
+  <body>
+    <header class="container">
+      <nav>
+        <ul>
+          <li>
+            <strong>{{ site.title }}</strong>
+          </li>
+        </ul>
+        <ul>
+          <li>
+            <a href="/">Home</a>
+          </li>
+          <li>
+            <a href="/about">About</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="container">
+      {{ content | safe }}
+    </main>
+    <footer class="container">
+      <nav>
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/quick-guide">GitHub.dev Guide</a>
+        <a href="https://github.com/oleeskild/gurl">GitHub</a>
+      </nav>
+      <p>&copy; {{ site.year }} - {{ site.title }} | A free and open source URL shortener</p>
+    </footer>
+  </body>
 </html>
