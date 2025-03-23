@@ -1,3 +1,6 @@
+// Load environment variables from .env file
+require("dotenv").config();
+
 module.exports = function (eleventyConfig) {
   // Copy the `css` directory to the output
   eleventyConfig.addPassthroughCopy("src/css");

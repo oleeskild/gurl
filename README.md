@@ -104,3 +104,46 @@ Create a `vercel.json` file with the following contents:
 ### GitHub Pages
 
 You can use GitHub Actions to deploy to GitHub Pages. Create a `.github/workflows/deploy.yml` file with appropriate configuration.
+
+## Customizing the Home Page
+
+By default, Gurl displays only your available links without marketing content or feature descriptions on the home page. This simplified interface is ideal for most deployments.
+
+You can enable the full marketing content using the `SHOW_MARKETING_CONTENT` environment variable:
+
+### Using .env file (recommended)
+
+Create a `.env` file in the project root with:
+
+```
+SHOW_MARKETING_CONTENT=true
+```
+
+The project includes dotenv for loading environment variables from the `.env` file automatically.
+
+### Setting the environment variable directly:
+
+#### On Netlify:
+
+Go to Site settings → Build & deploy → Environment → Environment variables and add:
+
+```
+SHOW_MARKETING_CONTENT true
+```
+
+#### On Vercel:
+
+Go to Project settings → Environment Variables and add:
+
+```
+SHOW_MARKETING_CONTENT true
+```
+
+If you prefer to always show the marketing content, you can edit the `src/_data/site.js` file directly:
+
+```js
+module.exports = {
+  // ... other settings
+  showMarketingContent: true,
+};
+```

@@ -3,26 +3,33 @@ layout: base.njk
 title: Gurl
 ---
 
-<section class="hero">
-    <h1>
-        <span class="gradient-text">Gurl</span>
-        <span class="subtitle">Free & Simple URL Shortener</span>
-    </h1>
-    <p>A free and <a href="https://github.com/oleeskild/gurl">open source</a> URL shortener. Easy to set up and deploy using free tools like GitHub and Vercel.</p>
-    <a href="/quick-guide" class="button primary">Start with GitHub.dev <span class="icon">→</span></a>
-    <a href="https://github.com/oleeskild/gurl#deploy-your-own" class="button">Deploy your own <span class="icon">↗</span></a>
-</section>
+{% if site.showMarketingContent %}
+    <section class="hero">
+        <div class="logo-container">
+            <div class="logo">g</div>
+            <div class="logo-text">
+                <h1 class="logo-name">gurl</h1>
+                <p class="logo-tagline">URL shortener for the modern web</p>
+            </div>
+        </div>
+        <p>A free and <a href="https://github.com/oleeskild/gurl">open source</a> URL shortener. Easy to set up and deploy using free tools like GitHub and Vercel.</p>
+        <a href="/quick-guide" class="button primary">Start with GitHub.dev <span class="icon">→</span></a>
+        <a href="https://github.com/oleeskild/gurl#deploy-your-own" class="button">Deploy your own <span class="icon">↗</span></a>
+    </section>
 
-<div class="fun-hero">
-    <h2>URL Management, Simplified</h2>
-    <p>Create memorable, shareable URLs for your team or organization. Perfect for internal resources, documentation, and frequently accessed links.</p>
-</div>
+    <div class="fun-hero">
+        <h2>URL Management, Simplified</h2>
+        <p>Create memorable, shareable URLs for your team or organization. Perfect for internal resources, documentation, and frequently accessed links.</p>
+    </div>
+{% endif %}
 
 <section id="shortcuts">
-    <h2>All Shortcuts</h2>
+    <h2>
+        {% if site.showMarketingContent %}All Shortcuts{% else %}Shortcuts{% endif %}
+    </h2>
     <div class="shortcut-grid">
         {%- set redirects = collections.redirectPages -%}
-        {%- for redirect in redirects | slice(0, 4) -%}
+        {%- for redirect in redirects -%}
             <article class="shortcut-card" style="--animation-order: {{ loop.index }};">
                 {% set iconMap = {
                     "books": "📚",
@@ -51,18 +58,19 @@ title: Gurl
     </div>
 </section>
 
-<section id="how-to" class="how-to-section">
-    <h2>How To Create a New Shortcut</h2>
+{% if site.showMarketingContent %}
+    <section id="how-to" class="how-to-section">
+        <h2>How To Create a New Shortcut</h2>
 
-    <ol class="step-list">
-        <li style="--item-index: 1">Create a new markdown file in the <code>src</code> directory</li>
-        <li style="--item-index: 2">The file path will become the URL (e.g., <code>src/books/mybook.md</code> creates <code>/books/mybook</code>)</li>
-        <li style="--item-index: 3">Add frontmatter to configure the redirect</li>
-    </ol>
+        <ol class="step-list">
+            <li style="--item-index: 1">Create a new markdown file in the <code>src</code> directory</li>
+            <li style="--item-index: 2">The file path will become the URL (e.g., <code>src/books/mybook.md</code> creates <code>/books/mybook</code>)</li>
+            <li style="--item-index: 3">Add frontmatter to configure the redirect</li>
+        </ol>
 
-    <details class="code-example">
-        <summary>Show example code</summary>
-        <pre><code>---
+        <details class="code-example">
+            <summary>Show example code</summary>
+            <pre><code>---
 # All of these have defaults:
 layout: redirect.njk  <!-- Default from markdown.js -->
 title: Your Page Title  <!-- Default: Uses redirect_url -->
@@ -71,97 +79,98 @@ redirect_delay: 5000  <!-- Default: 3000 milliseconds (3 seconds) -->
 ---
 
 Optional content to display on the redirect page</code></pre>
-    </details>
+        </details>
 
-</section>
+    </section>
 
-<section class="bento-section">
-    <h2>Features</h2>
-    <div class="bento-grid">
-        <div class="bento-item featured">
-            <div class="bento-icon">📂</div>
-            <h4 class="bento-title">Git-Backed System</h4>
-            <p class="bento-content">Leverages Git for version control, history tracking, and collaborative management of your URL shortcuts</p>
+    <section class="bento-section">
+        <h2>Features</h2>
+        <div class="bento-grid">
+            <div class="bento-item featured">
+                <div class="bento-icon">📂</div>
+                <h4 class="bento-title">Git-Backed System</h4>
+                <p class="bento-content">Leverages Git for version control, history tracking, and collaborative management of your URL shortcuts</p>
+            </div>
+
+            <div class="bento-item">
+                <div class="bento-icon">✍️</div>
+                <h4 class="bento-title">Customizable</h4>
+                <p class="bento-content">Fully customize each redirect page with markdown content</p>
+            </div>
+
+            <div class="bento-item">
+                <div class="bento-icon">🚀</div>
+                <h4 class="bento-title">Fast Performance</h4>
+                <p class="bento-content">Static site generation for extremely fast page loads</p>
+            </div>
+
+            <div class="bento-item">
+                <div class="bento-icon">🔄</div>
+                <h4 class="bento-title">Auto-Redirects</h4>
+                <p class="bento-content">Configurable redirect timing with countdown display</p>
+            </div>
+
+            <div class="bento-item">
+                <div class="bento-icon">🎨</div>
+                <h4 class="bento-title">Modern UI</h4>
+                <p class="bento-content">Clean interface with dark mode support and responsive design</p>
+            </div>
+
+            <div class="bento-item">
+                <div class="bento-icon">📱</div>
+                <h4 class="bento-title">Mobile Friendly</h4>
+                <p class="bento-content">Works great on all devices and screen sizes</p>
+            </div>
+
+            <div class="bento-item">
+                <div class="bento-icon">👥</div>
+                <h4 class="bento-title">Collaborative</h4>
+                <p class="bento-content">Multiple team members can manage URLs through Git pull requests and branches</p>
+            </div>
+
+            <div class="bento-item">
+                <div class="bento-icon">🌐</div>
+                <h4 class="bento-title">GitHub.dev Integration</h4>
+                <p class="bento-content">Edit and create redirects directly in your browser using GitHub.dev - no local clone needed</p>
+            </div>
         </div>
+    </section>
 
-        <div class="bento-item">
-            <div class="bento-icon">✍️</div>
-            <h4 class="bento-title">Customizable</h4>
-            <p class="bento-content">Fully customize each redirect page with markdown content</p>
-        </div>
+    <script>
+        // Add more floating URLs dynamically
+        const floatingUrlsContainer = document.querySelector('.floating-urls');
+        const urlExamples = [
+            '/blog/latest',
+            '/github/repo',
+            '/twitter/profile',
+            '/youtube/channel',
+            '/instagram/photos',
+            '/linkedin/job',
+            '/facebook/page',
+            '/products/new',
+            '/services/list'
+        ];
 
-        <div class="bento-item">
-            <div class="bento-icon">🚀</div>
-            <h4 class="bento-title">Fast Performance</h4>
-            <p class="bento-content">Static site generation for extremely fast page loads</p>
-        </div>
+        for (let i = 0; i < 15; i++) {
+            const url = urlExamples[Math.floor(Math.random() * urlExamples.length)];
+            const span = document.createElement('span');
+            span.className = 'floating-url';
+            span.textContent = url;
 
-        <div class="bento-item">
-            <div class="bento-icon">🔄</div>
-            <h4 class="bento-title">Auto-Redirects</h4>
-            <p class="bento-content">Configurable redirect timing with countdown display</p>
-        </div>
+            // Random position
+            span.style.top = `${Math.random() * 100}%`;
+            span.style.left = `${Math.random() * 100}%`;
 
-        <div class="bento-item">
-            <div class="bento-icon">🎨</div>
-            <h4 class="bento-title">Modern UI</h4>
-            <p class="bento-content">Clean interface with dark mode support and responsive design</p>
-        </div>
+            // Random opacity
+            span.style.opacity = (Math.random() * 0.06 + 0.02).toFixed(2);
 
-        <div class="bento-item">
-            <div class="bento-icon">📱</div>
-            <h4 class="bento-title">Mobile Friendly</h4>
-            <p class="bento-content">Works great on all devices and screen sizes</p>
-        </div>
+            // Random size
+            span.style.fontSize = `${Math.random() * 0.8 + 0.8}rem`;
 
-        <div class="bento-item">
-            <div class="bento-icon">👥</div>
-            <h4 class="bento-title">Collaborative</h4>
-            <p class="bento-content">Multiple team members can manage URLs through Git pull requests and branches</p>
-        </div>
+            // Random rotation
+            span.style.transform = `rotate(${Math.random() * 40 - 20}deg)`;
 
-        <div class="bento-item">
-            <div class="bento-icon">🌐</div>
-            <h4 class="bento-title">GitHub.dev Integration</h4>
-            <p class="bento-content">Edit and create redirects directly in your browser using GitHub.dev - no local clone needed</p>
-        </div>
-    </div>
-</section>
-
-<script>
-    // Add more floating URLs dynamically
-    const floatingUrlsContainer = document.querySelector('.floating-urls');
-    const urlExamples = [
-        '/blog/latest',
-        '/github/repo',
-        '/twitter/profile',
-        '/youtube/channel',
-        '/instagram/photos',
-        '/linkedin/job',
-        '/facebook/page',
-        '/products/new',
-        '/services/list'
-    ];
-
-    for (let i = 0; i < 15; i++) {
-        const url = urlExamples[Math.floor(Math.random() * urlExamples.length)];
-        const span = document.createElement('span');
-        span.className = 'floating-url';
-        span.textContent = url;
-
-        // Random position
-        span.style.top = `${Math.random() * 100}%`;
-        span.style.left = `${Math.random() * 100}%`;
-
-        // Random opacity
-        span.style.opacity = (Math.random() * 0.06 + 0.02).toFixed(2);
-
-        // Random size
-        span.style.fontSize = `${Math.random() * 0.8 + 0.8}rem`;
-
-        // Random rotation
-        span.style.transform = `rotate(${Math.random() * 40 - 20}deg)`;
-
-        floatingUrlsContainer.appendChild(span);
-    }
-</script>
+            floatingUrlsContainer.appendChild(span);
+        }
+    </script>
+{% endif %}
