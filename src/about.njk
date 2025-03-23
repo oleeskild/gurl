@@ -1,0 +1,112 @@
+---
+layout: base.njk
+title: About
+---
+
+<article>
+    <header>
+        <hgroup>
+            <h1>About Gurl</h1>
+            <h2>A git backed URL shortener for managing URL redirects</h2>
+        </hgroup>
+    </header>
+
+    <p>Gurl is a modern URL shortener built with <a href="https://www.11ty.dev/">Eleventy (11ty)</a> and Git. It uses markdown files for redirects, making it easy to version control and manage your shortcuts.</p>
+
+    <h3>How It Works</h3>
+
+    <div class="grid">
+        <div>
+            <h4>Git-Powered Workflow</h4>
+            <p>Each redirect is stored as a Markdown file in a Git repository. Create, update, and manage URLs using standard Git workflows.</p>
+        </div>
+        <div>
+            <h4>Frontmatter Configuration</h4>
+            <p>Special frontmatter fields define the redirect behavior:</p>
+            <ul>
+                <li>
+                    <strong>redirect_url</strong>: The destination URL</li>
+                <li>
+                    <strong>redirect_delay</strong>: The delay in milliseconds</li>
+                <li>
+                    <strong>title</strong>: Page title</li>
+            </ul>
+        </div>
+    </div>
+
+    <h3>Benefits</h3>
+
+    <div class="bento-grid">
+        <div class="bento-item featured">
+            <div class="bento-icon">📂</div>
+            <div>
+                <h4 class="bento-title">Git-Backed System</h4>
+                <p class="bento-content">Leverages Git for version control, history tracking, and collaborative management of your URL shortcuts</p>
+            </div>
+        </div>
+
+        <div class="bento-item">
+            <header>
+                <div class="bento-icon">✍️</div>
+                <h4 class="bento-title">Customizable</h4>
+            </header>
+            <p class="bento-content">Fully customize each redirect page with markdown content</p>
+        </div>
+
+        <div class="bento-item">
+            <header>
+                <div class="bento-icon">🚀</div>
+                <h4 class="bento-title">Fast Performance</h4>
+            </header>
+            <p class="bento-content">Static site generation for extremely fast page loads</p>
+        </div>
+
+        <div class="bento-item">
+            <header>
+                <div class="bento-icon">🔄</div>
+                <h4 class="bento-title">Auto-Redirects</h4>
+            </header>
+            <p class="bento-content">Configurable redirect timing with countdown display</p>
+        </div>
+
+        <div class="bento-item">
+            <header>
+                <div class="bento-icon">🎨</div>
+                <h4 class="bento-title">Modern UI</h4>
+            </header>
+            <p class="bento-content">Clean interface with dark mode support and responsive design</p>
+        </div>
+
+        <div class="bento-item">
+            <header>
+                <div class="bento-icon">📱</div>
+                <h4 class="bento-title">Mobile Friendly</h4>
+            </header>
+            <p class="bento-content">Works great on all devices and screen sizes</p>
+        </div>
+
+        <div class="bento-item">
+            <header>
+                <div class="bento-icon">👥</div>
+                <h4 class="bento-title">Collaborative</h4>
+            </header>
+            <p class="bento-content">Multiple team members can manage URLs through Git pull requests and branches</p>
+        </div>
+
+        <div class="bento-item">
+            <header>
+                <div class="bento-icon">🌐</div>
+                <h4 class="bento-title">GitHub.dev Integration</h4>
+            </header>
+            <p class="bento-content">Edit and create redirects directly in your browser using GitHub.dev - no local clone needed</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>Gurl was built using Eleventy v{{ pkg.devDependencies['@11ty/eleventy'] | replace('^', '') }}, <a href="https://picocss.com">Pico CSS</a>, and Git.</p>
+        <p>
+            <a href="/" role="button" class="secondary">Back to Home</a>
+            <a href="/quick-guide" role="button">GitHub.dev Guide</a>
+        </p>
+    </footer>
+</article>

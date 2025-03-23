@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% set pageTitle = title or redirect_url %}
+    <title>{{ pageTitle }}</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <meta http-equiv="refresh" content="{{ redirect_delay / 1000 }}; url={{ redirect_url }}">
+    <script>
+      setTimeout(function () {
+        window.location.href = "{{ redirect_url }}";
+      }, {{ redirect_delay }});
+    </script>
+  </head>
+  <body>
+    <main class="container redirect-container">
+      <article>
+        <div class="redirect-info">
+          <hgroup>
+            <h1>{{ pageTitle }}</h1>
+            <h2>Redirecting in <span class="countdown">{{ (redirect_delay / 1000) | round }}</span> seconds</h2>
+          </hgroup>
+          <p>Destination: <a href="{{ redirect_url }}">{{ redirect_url }}</a>
+          </p>
+        </div>
+
+        <div class="redirect-content">
+          {{ content | safe }}
+        </div>
+
+        <div class="redirect-footer">
+          <a href="/">Back to Home</a>
+        </div>
+      </article>
+    </main>
+
+    <script>
+      // Simple countdown timer
+      const totalTime = {{ redirect_delay }};
+      const countdownEl = document.querySelector('.countdown');
+      let timeLeft = Math.round(totalTime / 1000);
+
+      // Update countdown text immediately
+      countdownEl.textContent = timeLeft;
+
+      // Update the timer every second
+      const interval = setInterval(() => {
+        timeLeft -= 1;
+
+        if (timeLeft <= 0) {
+          clearInterval(interval);
+          timeLeft = 0;
+        }
+
+        // Update countdown text
+        countdownEl.textContent = timeLeft;
+      }, 1000);
+    </script>
+  </body>
+</html>
